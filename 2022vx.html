@@ -1,4 +1,116 @@
+<style>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.characters-voeux {
+  cursor: pointer;
+  fill: #d83e00;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.voeux .mask {
+  fill: none;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+}
+
+@keyframes strokeOffset {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.button {
+  padding: 8px 16px;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+#mask-b {
+  animation: strokeOffset 0.5s linear forwards;
+}
+#mask-o {
+  animation: strokeOffset 0.5s linear forwards 1s;
+}
+#mask-n1 {
+  animation: strokeOffset 0.25s linear forwards 1.25s;
+}
+#mask-n2 {
+  animation: strokeOffset 0.25s linear forwards 1.5s;
+}
+#mask-e11 {
+  animation: strokeOffset 0.25s linear forwards 1.75s;
+}
+#mask-e12 {
+  animation: strokeOffset 0.25s linear forwards 2s;
+}
+#mask-e13 {
+  animation: strokeOffset 0.25s linear forwards 2.25s;
+}
+#mask-a1 {
+  animation: strokeOffset 0.25s linear forwards 2.5s;
+}
+#mask-a2 {
+  animation: strokeOffset 0.25s linear forwards 2.75s;
+}
+#mask-n3 {
+  animation: strokeOffset 0.25s linear forwards 3s;
+}
+#mask-n4 {
+  animation: strokeOffset 0.25s linear forwards 3.25s;
+}
+#mask-e21 {
+  animation: strokeOffset 0.25s linear forwards 3.5s;
+}
+#mask-e22 {
+  animation: strokeOffset 0.25s linear forwards 3.75s;
+}
+#mask-e23 {
+  animation: strokeOffset 0.25s linear forwards 4s;
+}
+#mask-e24 {
+  animation: strokeOffset 0.25s linear forwards 4.25s;
+}
+#mask-e31 {
+  animation: strokeOffset 0.25s linear forwards 4.5s;
+}
+#mask-e32 {
+  animation: strokeOffset 0.25s linear forwards 4.75s;
+}
+#mask-e33 {
+  animation: strokeOffset 0.25s linear forwards 5s;
+}
+#mask-21 {
+  animation: strokeOffset 0.25s linear forwards 5.25s;
+}
+#mask-0 {
+  animation: strokeOffset 0.25s linear forwards 5.5s;
+}
+#mask-22 {
+  animation: strokeOffset 0.25s linear forwards 5.75s;
+}
+#mask-23 {
+  animation: strokeOffset 0.25s linear forwards 6s;
+}
+#mask-p {
+  animation: strokeOffset 0.25s linear forwards 6.25s;
+}
+#mask-t {
+  animation: strokeOffset 0.25s linear forwards 6.5s;
+}
+</style>
+
 <div class="container">
+
 <svg id="Calque_1" class="voeux" data-name="Calque 1" width="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 434.58 404.56">
 <title>Bonne année 2022</title>
 <defs>
@@ -88,3 +200,16 @@
 </g>
 </svg>
 </div>
+
+<script>
+	// Put the masks in an array
+const masks = ['b', 'o', 'n1', 'n2', 'e11', 'e12', 'e13', 'a1', 'a2', 'n3', 'n4', 'e21', 'e22', 'e23', 'e24', 'e31', 'e32', 'e33', '21', '0', '22', '23', 'p', 't']
+ 
+masks.forEach((mask, index, el) => {
+  const id = `#mask-${mask}` // Prepend #mask- to each mask element name
+  let path = document.querySelector(id)
+  const length = path.getTotalLength() // Calculate the length of a path
+  path.style.strokeDasharray = length; // Set the length to stroke-dasharray in the styles
+  path.style.strokeDashoffset = length; // Set the length to stroke-dashoffset in the styles
+})
+</script>
